@@ -24,7 +24,8 @@ public class PaymentServiceApplication {
         Person bob1 = new Person("Bob1", 17,true);//no
         Person bob2 = new Person("Bob2", 21,false);//no
         Person bob3 = new Person("Bob3", 21,true);//true
-        List<Person> list= Arrays.asList(bob1,bob2,bob3);
+        Person bob4 = new Person("Bob4", 25,true);//true
+        List<Person> list= Arrays.asList(bob1,bob2,bob3,bob4);
         RulesEngine engine=new DefaultRulesEngine();
         ConditionalRuleGroup conditionalRuleGroup=new ConditionalRuleGroup();
         conditionalRuleGroup.addRule(new AdultRule());
