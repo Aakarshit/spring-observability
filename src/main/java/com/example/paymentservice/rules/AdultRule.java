@@ -1,23 +1,21 @@
 package com.example.paymentservice.rules;
 
 import com.example.paymentservice.dto.Person;
-import org.jeasy.rules.api.Facts;
-import org.jeasy.rules.core.BasicRule;
+import org.jeasy.rules.annotation.Action;
+import org.jeasy.rules.annotation.Condition;
+import org.jeasy.rules.annotation.Fact;
+import org.jeasy.rules.annotation.Rule;
 
-public class AdultRule extends BasicRule {
+@Rule(name = "AdultRule", description = "Checks if a person is adult or not.",priority = 1)
+public class AdultRule{
 
-    public AdultRule() {
-        super("AdultRule", "Checks if a person is adult or not.",1);
-    }
-    @Override
-    public boolean evaluate(Facts facts) {
-        Person person = facts.get("person");
+    @Condition
+    public boolean when(@Fact("person") Person person) {
         return person.age() >= 18;
     }
 
-    @Override
-    public void execute(Facts facts) {
-        Person p=facts.get("person");
-        System.out.println(p.name() + " is an adult.");
+    @Action
+    public void then(@Fact("person") Person person) {
+        System.out.println(person.name() + " is an adult.");
     }
 }

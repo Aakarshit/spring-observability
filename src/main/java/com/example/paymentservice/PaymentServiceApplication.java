@@ -20,7 +20,7 @@ public class PaymentServiceApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(PaymentServiceApplication.class, args);
-
+        // With this we can achieve Chain of Responsibility
         Person bob1 = new Person("Bob1", 17,true);//no
         Person bob2 = new Person("Bob2", 21,false);//no
         Person bob3 = new Person("Bob3", 21,true);//true
